@@ -18,4 +18,7 @@ public interface UserMapper {
     @Select("select * from user where name=#{name} and password=#{password}")
     User getUserByName(User user);
 
+    @Select("select name from user where name=#{name}")
+    String getUserNameAsToken(String name);
+
 }

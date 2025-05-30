@@ -3,12 +3,15 @@ import axios from 'axios';
 import { ElMessage } from 'element-plus';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
+//import{useMyUserStore}from '@/stores/MyUser';
 
     let username=ref('');
     let password=ref('');
     let message=ref('');
-    let id=ref('')
+    let id=ref('');
     let router=useRouter();
+    //let token=ref('');
+    // let stores=useMyUserStore();
 
       function Login(){
         let user={
@@ -20,6 +23,11 @@ import { useRouter } from 'vue-router';
          if(res.data){
           ElMessage.success("登录成功！");
           router.push('/home');
+          //token.value=username.value;
+          router.push({
+            path:'/home/dashboard',
+            query:{uname:username.value}
+          });
          }else{
           ElMessage.error("登录失败，账号或密码错误！")
           username.value='';
@@ -32,6 +40,7 @@ import { useRouter } from 'vue-router';
 </script>
 
 <template>
+
     <div class="login-container">
     <h1>登录页面</h1>
     <form @submit.prevent="Login">

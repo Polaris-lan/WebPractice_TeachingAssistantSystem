@@ -89,7 +89,7 @@
             <el-icon><User /></el-icon>
             <span>学生信息管理</span>
           </el-menu-item>
-          <el-menu-item index="/home/task-publish">
+          <el-menu-item @click="EnterTaskPublish" index="/home/taskpublish">
             <el-icon><Document /></el-icon>
             <span>任务发布</span>
           </el-menu-item>
@@ -104,6 +104,7 @@
 </template>
 
 <script setup lang="ts">
+import router from '@/router';
 import { House, User, Document } from '@element-plus/icons-vue'
 import { useRouter } from 'vue-router';
 
@@ -114,6 +115,11 @@ function EnterDashboard(){
 function EnterStudentManagement(){
 	router.push('/student');
 }
+
+function EnterTaskPublish(){
+	router.push('/taskpublish');
+}
+
 </script>
 
 <style scoped>

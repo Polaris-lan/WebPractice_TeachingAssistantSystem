@@ -17,4 +17,9 @@ public class UserController {
     public User Login(@RequestBody User user){
         return userMapper.getUserByName(user);
     }
+
+    @RequestMapping("/passtoken")
+    public String getUserNameFromToken(User user){
+        return userMapper.getUserNameAsToken(user.getName());
+    }
 }
