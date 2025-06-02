@@ -100,16 +100,13 @@ const token=route.query.uname;
 const fetchProfessorInfo=async()=>{
   try {
     // 确保获取正确的query参数
-    
-    
     if (!username) {
       ElMessage.error('未获取到用户信息');
       return;
     }
-
     const response = await axios.get("http://localhost:8080/info", {
       params: { 
-        token: username // 或者直接使用 username 作为参数
+        token: username 
       }
     });
     
@@ -147,8 +144,6 @@ const handleAvatarSuccess = (response: any) => {
     ElMessage.error(response.message || '头像上传失败')
   }
 }
-
-
 
 // 头像上传前验证
 const beforeAvatarUpload = (file: File) => {

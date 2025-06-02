@@ -22,12 +22,22 @@ import { useRouter } from 'vue-router';
         axios.post("http://localhost:8080/login",user).then(res=>{
          if(res.data){
           ElMessage.success("登录成功！");
-          router.push('/home');
-          //token.value=username.value;
+          
           router.push({
-            path:'/home/dashboard',
+            path:'/home',
             query:{uname:username.value}
           });
+
+          //router.push('/home');
+          // router.push({
+          //   path:'/home/dashboard',
+          //   query:{uname:username.value}
+          // });
+
+          // router.push({
+          //   path:'/home/taskpublish',
+          //   query:{uname:username.value}
+          // });
          }else{
           ElMessage.error("登录失败，账号或密码错误！")
           username.value='';

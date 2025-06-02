@@ -84,11 +84,11 @@
         clearable
       />
       <br />
-      学号:
+      作业提交状态:
       <el-input
-        v-model="upstunum"
+        v-model="uphomeworkstate"
         style="width: 240px; margin-bottom: 15px"
-        placeholder="请输入学号"
+        placeholder="0-未提交，1-已提交"
         clearable
       />
       <br />
@@ -138,7 +138,7 @@
       <el-pagination
         v-model:current-page="currentPage"
         v-model:page-size="pageSize"
-        :page-sizes="[10, 20, 30, 50]"
+        :page-sizes="[5, 6, 7, 10]"
         :small="false"
         :background="true"
         layout="total, sizes, prev, pager, next, jumper"
@@ -169,7 +169,7 @@ let tableData = ref([])
 
 // 分页相关
 const currentPage = ref(1)
-const pageSize = ref(10)
+const pageSize = ref(7)
 
 // 计算当前页显示的数据
 const currentPageData = computed(() => {

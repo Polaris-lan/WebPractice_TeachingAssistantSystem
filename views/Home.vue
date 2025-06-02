@@ -107,9 +107,17 @@
 import router from '@/router';
 import { House, User, Document } from '@element-plus/icons-vue'
 import { useRouter } from 'vue-router';
+import { useRoute } from 'vue-router';
+let route=useRoute();
+const name=route.query.uname;
 
 function EnterDashboard(){
-	router.push('/dashboard');
+	//router.push('/dashboard');
+
+	router.push({
+		path:'/home/dashboard',
+		query:{uname:name}
+	})
 }
 
 function EnterStudentManagement(){
@@ -117,7 +125,12 @@ function EnterStudentManagement(){
 }
 
 function EnterTaskPublish(){
-	router.push('/taskpublish');
+	//router.push('/taskpublish');
+
+	router.push({
+		path:'/taskpublish',
+		query:{uname:name}
+	})
 }
 
 </script>
